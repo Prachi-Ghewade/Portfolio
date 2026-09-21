@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prachi Ghewade — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5EF;
+    --bg-raise: #FFFFFF;
+    --text: #22252A;
+    --text-soft: #5B5F66;
+    --line: #DCD7C9;
+    --accent: #3450C9;
+    --accent-soft: #EDF0FB;
+    --mono-tag: #7A7361;
+
+    --lang: #B8562F;
+    --lang-soft: #FBECE3;
+    --ml: #3450C9;
+    --ml-soft: #EDF0FB;
+    --tool-c: #2E8B6E;
+    --tool-soft: #E7F4EE;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181C;
+      --bg-raise: #1D2025;
+      --text: #ECEAE3;
+      --text-soft: #A3A7AE;
+      --line: #33363D;
+      --accent: #8FA4FF;
+      --accent-soft: #232A45;
+      --mono-tag: #8B8E7F;
+
+      --lang: #E08D5E;
+      --lang-soft: #332420;
+      --ml: #8FA4FF;
+      --ml-soft: #232A45;
+      --tool-c: #6FC4A2;
+      --tool-soft: #1D2E27;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181C;
+    --bg-raise: #1D2025;
+    --text: #ECEAE3;
+    --text-soft: #A3A7AE;
+    --line: #33363D;
+    --accent: #8FA4FF;
+    --accent-soft: #232A45;
+    --mono-tag: #8B8E7F;
+
+    --lang: #E08D5E;
+    --lang-soft: #332420;
+    --ml: #8FA4FF;
+    --ml-soft: #232A45;
+    --tool-c: #6FC4A2;
+    --tool-soft: #1D2E27;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 5.5rem;
+  }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 3.25rem 1.25rem 4rem; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .hero-text { flex: 1; min-width: 0; }
+  .hero-motif {
+    flex: none;
+    width: 108px;
+    height: 108px;
+    margin-top: 0.3rem;
+    opacity: 0.9;
+  }
+  .hero-motif circle { fill: var(--accent); }
+  .hero-motif circle.dim { fill: var(--mono-tag); opacity: 0.55; }
+  .hero-motif line { stroke: var(--line); stroke-width: 1; }
+  @media (max-width: 560px) {
+    .hero-motif { display: none; }
+  }
+
+  .hero-kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--mono-tag);
+    letter-spacing: 0.02em;
+    margin: 0 0 1.4rem;
+  }
+  .hero-kicker::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.6rem, 7vw, 3.7rem);
+    line-height: 1.05;
+    margin: 0 0 1.15rem;
+    letter-spacing: -0.015em;
+  }
+  .tagline {
+    font-size: 1.18rem;
+    line-height: 1.55;
+    color: var(--text-soft);
+    max-width: 32rem;
+    margin: 0 0 2.4rem;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0;
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta span { white-space: nowrap; display: flex; align-items: center; }
+  .hero-meta span:not(:last-child)::after {
+    content: "";
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--mono-tag);
+    display: inline-block;
+    margin: 0 0.9rem;
+  }
+  .hero-meta .status { color: var(--text); font-weight: 500; }
+  .hero-meta .status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4C9A5A;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
+  /* ---------- Sections ---------- */
+  section { margin-top: clamp(3.5rem, 8vw, 4.75rem); }
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--mono-tag);
+    letter-spacing: 0.02em;
+    margin: 0 0 1.3rem;
+  }
+
+  .about p {
+    font-size: 1.05rem;
+    line-height: 1.68;
+    max-width: 36rem;
+    margin: 0 0 1.05rem;
+  }
+  .about p:last-child { margin-bottom: 0; }
+
+  /* ---------- Toolkit ---------- */
+  .toolkit-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    max-width: 40rem;
+  }
+  .tool {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    font-size: 0.92rem;
+    color: var(--text);
+    background: var(--accent-soft);
+    border: 1px solid transparent;
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .tool::before {
+    content: "";
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .tool:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+  .tool--lang { background: var(--lang-soft); }
+  .tool--lang::before { background: var(--lang); }
+  .tool--lang:hover { border-color: var(--lang); }
+
+  .tool--ml { background: var(--ml-soft); }
+  .tool--ml::before { background: var(--ml); }
+  .tool--ml:hover { border-color: var(--ml); }
+
+  .tool--tool { background: var(--tool-soft); }
+  .tool--tool::before { background: var(--tool-c); }
+  .tool--tool:hover { border-color: var(--tool-c); }
+
+  /* ---------- Projects ---------- */
+  .project {
+    padding: 1.9rem 1.25rem;
+    margin: 0 -1.25rem;
+    border-top: 1px solid var(--line);
+    border-radius: 10px;
+    transition: background 0.18s ease;
+  }
+  .project:last-child { padding-bottom: 0.6rem; }
+  .project:hover { background: var(--bg-raise); }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+  .project-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .project-title a {
+    color: var(--text);
+    text-decoration: none;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.2s ease, color 0.2s ease;
+    padding-bottom: 1px;
+  }
+  .project-title a:hover { color: var(--accent); background-size: 100% 1px; }
+
+  .project-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+  .project-link:hover { opacity: 0.65; }
+
+  .case-row {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 0.2rem 1rem;
+    margin-bottom: 0.45rem;
+    font-size: 0.97rem;
+    line-height: 1.55;
+  }
+  .case-row:last-child { margin-bottom: 0; }
+  .case-row dt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--mono-tag);
+    padding-top: 0.25rem;
+  }
+  .case-row dd {
+    margin: 0;
+    color: var(--text);
+  }
+  .case-list { margin: 0.7rem 0 0; }
+
+  @media (max-width: 480px) {
+    .project { margin: 0 -0.75rem; padding: 1.6rem 0.75rem; }
+    .case-row { grid-template-columns: 1fr; gap: 0.1rem; }
+    .case-row dt { padding-top: 0.6rem; }
+  }
+
+  /* ---------- Contact ---------- */
+  .contact {
+    margin-top: 4.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .contact-lead {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.65rem;
+    margin: 0 0 1.4rem;
+  }
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.8rem;
+    font-size: 0.98rem;
+  }
+  .contact-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--line);
+    transition: color 0.15s ease, border-color 0.15s ease, gap 0.15s ease;
+  }
+  .contact-links a::after {
+    content: "↗";
+    font-size: 0.85em;
+    opacity: 0;
+    transform: translate(-2px, 2px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  .contact-links a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .contact-links a:hover::after {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  footer {
+    margin-top: 3.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+    color: var(--mono-tag);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .wrap { animation: rise 0.5s ease-out; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero-top">
+    <div class="hero-text">
+      <div class="hero-kicker">portfolio</div>
+      <h1>Prachi Ghewade</h1>
+      <p class="tagline">Computer Science &amp; Engineering student who learns by building — currently working through machine learning, one dataset at a time.</p>
+    </div>
+    <svg class="hero-motif" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="20" y1="24" x2="54" y2="14" />
+      <line x1="20" y1="24" x2="30" y2="62" />
+      <line x1="54" y1="14" x2="86" y2="30" />
+      <line x1="54" y1="14" x2="30" y2="62" />
+      <line x1="86" y1="30" x2="72" y2="70" />
+      <line x1="30" y1="62" x2="72" y2="70" />
+      <line x1="30" y1="62" x2="46" y2="94" />
+      <line x1="72" y1="70" x2="46" y2="94" />
+      <circle class="dim" cx="20" cy="24" r="4" />
+      <circle cx="54" cy="14" r="3.5" />
+      <circle class="dim" cx="86" cy="30" r="3" />
+      <circle cx="30" cy="62" r="5" />
+      <circle class="dim" cx="72" cy="70" r="4" />
+      <circle cx="46" cy="94" r="3.5" />
+    </svg>
+  </div>
+
+  <div class="hero-meta">
+    <span class="status">Open to ML internships</span>
+    <span>B.E. Computer Science &amp; Engineering</span>
+    <span>Graduating 2029</span>
+  </div>
+
+  <section class="about">
+    <div class="section-label">about</div>
+    <p>I'm an engineering student who spends most of my free time turning tutorials into actual projects — training a digit classifier until the accuracy stops improving, cleaning a messy churn dataset until the numbers make sense, or wiring together an automation just to see if it'll run unattended for a week without breaking.</p>
+    <p>I'm early in this, and I like it that way: still asking "why did that work" more often than "of course that worked."</p>
+  </section>
+
+  <section class="toolkit">
+    <div class="section-label">toolkit</div>
+    <div class="toolkit-grid">
+      <span class="tool tool--lang">Python</span>
+      <span class="tool tool--ml">NumPy</span>
+      <span class="tool tool--ml">pandas</span>
+      <span class="tool tool--ml">scikit-learn</span>
+      <span class="tool tool--ml">Matplotlib</span>
+      <span class="tool tool--ml">TensorFlow / Keras</span>
+      <span class="tool tool--tool">Jupyter</span>
+      <span class="tool tool--tool">Git</span>
+      <span class="tool tool--tool">n8n</span>
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="section-label">projects</div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title"><a href="https://github.com/Prachi-Ghewade/MNIST-Digit-Classification-using-Deep-Learning" target="_blank" rel="noopener">MNIST Digit Classification</a></h3>
+        <a class="project-link" href="https://github.com/Prachi-Ghewade/MNIST-Digit-Classification-using-Deep-Learning" target="_blank" rel="noopener">view repo →</a>
+      </div>
+      <dl class="case-list">
+        <div class="case-row"><dt>problem</dt><dd>Recognize handwritten digits (0–9) from 28×28 grayscale images.</dd></div>
+        <div class="case-row"><dt>approach</dt><dd>Built and trained a neural network with ReLU activations in TensorFlow/Keras, tuning over several epochs and validating along the way.</dd></div>
+        <div class="case-row"><dt>result</dt><dd>97.86% test accuracy on unseen digits.</dd></div>
+      </dl>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title"><a href="https://github.com/Prachi-Ghewade/Customer-Churn-Prediction" target="_blank" rel="noopener">Customer Churn Prediction</a></h3>
+        <a class="project-link" href="https://github.com/Prachi-Ghewade/Customer-Churn-Prediction" target="_blank" rel="noopener">view repo →</a>
+      </div>
+      <dl class="case-list">
+        <div class="case-row"><dt>problem</dt><dd>Predict which telecom customers are likely to cancel their service.</dd></div>
+        <div class="case-row"><dt>approach</dt><dd>Cleaned and explored ~7,000 customer records, encoded categorical features, and compared Logistic Regression against a Decision Tree in scikit-learn.</dd></div>
+        <div class="case-row"><dt>result</dt><dd>Logistic Regression came out ahead, at ~79% accuracy.</dd></div>
+      </dl>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title"><a href="https://github.com/Prachi-Ghewade/n8n-AI-Research-Digest" target="_blank" rel="noopener">AI Research Digest</a></h3>
+        <a class="project-link" href="https://github.com/Prachi-Ghewade/n8n-AI-Research-Digest" target="_blank" rel="noopener">view repo →</a>
+      </div>
+      <dl class="case-list">
+        <div class="case-row"><dt>problem</dt><dd>Keeping up with new arXiv papers on a topic means manually searching every week.</dd></div>
+        <div class="case-row"><dt>approach</dt><dd>Built an n8n workflow that queries the arXiv API on a schedule, reshapes the response, and emails a formatted digest via Gmail — entirely on free tools.</dd></div>
+        <div class="case-row"><dt>result</dt><dd>A fully automated, zero-cost weekly research digest running unattended.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="contact">
+    <p class="contact-lead">Let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:prachighewade@gmail.com">prachighewade@gmail.com</a>
+      <a href="https://github.com/Prachi-Ghewade" target="_blank" rel="noopener">github.com/Prachi-Ghewade</a>
+      <a href="https://www.linkedin.com/in/prachi-ghewade" target="_blank" rel="noopener">linkedin.com/in/prachi-ghewade</a>
+    </div>
+  </div>
+
+  <footer>Built while learning — updated 2026.</footer>
+
+</div>
+</body>
+</html>
